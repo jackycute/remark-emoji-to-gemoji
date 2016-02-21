@@ -35,7 +35,7 @@ Object.keys(gemoji.name).forEach(function (key) {
     } else {
         emojiList.push(gemoji.name[key].emoji);
         renderedEmojiList.push(':' + key.replace(/\_/g, '\\_') + ':');
-    }    
+    }
 });
 
 /*

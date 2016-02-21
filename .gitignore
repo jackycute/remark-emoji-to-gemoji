@@ -1,0 +1,7 @@
+.DS_Store
+*.log
+components/
+coverage/
+node_modules/
+remark-emoji-to-gemoji.js
+remark-emoji-to-gemoji.min.js

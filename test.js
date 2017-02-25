@@ -30,11 +30,11 @@ Object.keys(gemoji.name).forEach(function (key) {
         // do not test alias emojis
         if (emojiList[emojiList.length - 1] != gemoji.name[key].emoji) {
             emojiList.push(gemoji.name[key].emoji);
-            renderedEmojiList.push(':' + key.replace(/\_/g, '\\_') + ':');
+            renderedEmojiList.push(':' + key + ':');
         }
     } else {
         emojiList.push(gemoji.name[key].emoji);
-        renderedEmojiList.push(':' + key.replace(/\_/g, '\\_') + ':');
+        renderedEmojiList.push(':' + key + ':');
     }
 });
 
@@ -43,17 +43,11 @@ Object.keys(gemoji.name).forEach(function (key) {
  */
 
 test('remark-emoji-to-gemoji', function (t) {
-    processor.process([
-        emojiList,
-        ''
-    ].join('\n'), function (err, file, doc) {
+    t.plan(2);
+
+    processor.process(emojiList.join('\n') + '\n', function (err, file) {
         t.ifErr(err);
 
-        t.equal(doc, [
-            renderedEmojiList,
-            ''
-        ].join('\n'));
+        t.equal(String(file), renderedEmojiList.join('\n') + '\n');
     });
-
-    t.end();
 });

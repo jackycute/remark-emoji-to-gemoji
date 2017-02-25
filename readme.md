@@ -22,9 +22,7 @@ var emojiToGemoji = require('remark-emoji-to-gemoji');
 Process:
 
 ```javascript
-var doc = remark().use(emojiToGemoji).process([
-    '😄 👍'
-].join('\n'));
+var doc = remark().use(emojiToGemoji).processSync('😄 👍').toString();
 ```
 
 Yields:

@@ -20,7 +20,6 @@
   ],
   "devDependencies": {
     "browserify": "^14.0.0",
-    "eslint": "^3.16.0",
     "esmangle": "^1.0.0",
     "istanbul": "^0.4.0",
     "remark": "^7.0.0",
@@ -32,16 +31,23 @@
     "remark-slug": "^4.2.0",
     "remark-usage": "^5.0.0",
     "remark-validate-links": "^6.0.0",
-    "tape": "^4.0.0"
+    "tape": "^4.0.0",
+    "xo": "^0.17.1"
   },
   "scripts": {
     "build-md": "remark . -qfo",
     "build-bundle": "browserify index.js --no-builtins -s emojiToGemoji > remark-emoji-to-gemoji.js",
     "build-mangle": "esmangle remark-emoji-to-gemoji.js > remark-emoji-to-gemoji.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
-    "lint": "eslint .",
-    "test-api": "node test.js",
+    "lint": "xo",
+    "test-api": "node test",
     "test-coverage": "istanbul cover test.js",
     "test": "npm run build && npm run lint && npm run test-coverage"
+  },
+  "xo": {
+    "space": true,
+    "rules": {
+      "guard-for-in": "off"
+    }
   }
 }

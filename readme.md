@@ -4,7 +4,7 @@
 
 ## Installation
 
-[npm][npm-install]:
+[npm][]:
 
 ```bash
 npm install remark-emoji-to-gemoji
@@ -12,19 +12,13 @@ npm install remark-emoji-to-gemoji
 
 ## Usage
 
-Dependencies:
-
 ```javascript
 var remark = require('remark');
 var emojiToGemoji = require('remark-emoji-to-gemoji');
-```
 
-Process:
+var doc = remark().use(emojiToGemoji).processSync('😄 👍').toString();
 
-```javascript
-var doc = remark().use(emojiToGemoji).process([
-    '😄 👍'
-].join('\n'));
+console.log(doc);
 ```
 
 Yields:
@@ -49,7 +43,7 @@ Transform emoji unicodes into gemoji shortcodes (like 😄 into `:smile:`).
 
 [travis]: https://travis-ci.org/jackycute/remark-emoji-to-gemoji
 
-[npm-install]: https://docs.npmjs.com/cli/install
+[npm]: https://docs.npmjs.com/cli/install
 
 [license]: LICENSE
 
